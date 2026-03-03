@@ -158,32 +158,75 @@ const Reports = () => {
       const topCategory = Array.from(categoryTotals.entries()).sort((a, b) => b[1] - a[1])[0];
       const totalPercent = monthlyBudget > 0 ? Math.round((monthTotal / monthlyBudget) * 100) : 0;
 
-      const insights = [
-        monthlyBudget > 0
-          ? {
-            text: totalPercent > 90
-              ? `You have used ${totalPercent}% of your budget.`
-              : `You are at ${totalPercent}% of your budget.`,
-            status: totalPercent > 90 ? 'warning' : totalPercent > 75 ? 'ok' : 'good',
-            emoji: totalPercent > 90 ? '!' : totalPercent > 75 ? '~' : '+'
-          }
-          : {
-            text: 'Set a monthly budget to track progress.',
-            status: 'warning',
-            emoji: '!'
-          },
-        topCategory
-          ? {
-            text: `${topCategory[0]} is your top spend category this month.`,
-            status: 'ok',
-            emoji: '~'
-          }
-          : {
-            text: 'Add transactions to unlock insights.',
-            status: 'ok',
-            emoji: '~'
-          }
-      ];
+      const insightItems = [];
+
+      if (monthlyBudget > 0) {
+        insightItems.push({
+          text: totalPercent > 100
+            ? `You are over budget by ${formatCurrency(monthTotal - monthlyBudget)} (${totalPercent}% used).`
+            : `You have used ${totalPercent}% of your monthly budget and have ${formatCurrency(Math.max(0, monthlyBudget - monthTotal))} left.`,
+          status: totalPercent > 100 ? 'warning' : totalPercent > 80 ? 'ok' : 'good',
+          emoji: totalPercent > 100 ? '!' : totalPercent > 80 ? '~' : '+'
+        });
+      } else {
+        insightItems.push({
+          text: `You spent ${formatCurrency(monthTotal)} this month. Set a budget to get pacing alerts.`,
+          status: 'warning',
+          emoji: '!'
+        });
+      }
+
+      if (topCategory) {
+        const topShare = monthTotal > 0 ? Math.round((topCategory[1] / monthTotal) * 100) : 0;
+        insightItems.push({
+          text: `${topCategory[0]} drives ${topShare}% of your monthly spend (${formatCurrency(topCategory[1])}).`,
+          status: topShare >= 40 ? 'warning' : topShare >= 25 ? 'ok' : 'good',
+          emoji: topShare >= 40 ? '!' : '~'
+        });
+      }
+
+      const prevTotal = prevMonthExpenses.reduce((sum, t) => sum + (t.amount || 0), 0);
+      if (prevTotal > 0) {
+        const deltaPct = Math.round(((monthTotal - prevTotal) / prevTotal) * 100);
+        insightItems.push({
+          text: deltaPct >= 0
+            ? `Your spending is up ${deltaPct}% vs last month (${formatCurrency(prevTotal)} -> ${formatCurrency(monthTotal)}).`
+            : `Your spending is down ${Math.abs(deltaPct)}% vs last month (${formatCurrency(prevTotal)} -> ${formatCurrency(monthTotal)}).`,
+          status: deltaPct > 15 ? 'warning' : deltaPct > 0 ? 'ok' : 'good',
+          emoji: deltaPct > 0 ? '!' : '+'
+        });
+      }
+
+      const dayTotals = monthExpenses.reduce((acc, t) => {
+        const day = new Date(t.date).toLocaleDateString('en-US', { weekday: 'long' });
+        acc[day] = (acc[day] || 0) + (t.amount || 0);
+        return acc;
+      }, {});
+      const topDay = Object.entries(dayTotals).sort((a, b) => b[1] - a[1])[0];
+      if (topDay) {
+        insightItems.push({
+          text: `${topDay[0]} is your highest spending day this month (${formatCurrency(topDay[1])}).`,
+          status: 'ok',
+          emoji: '~'
+        });
+      }
+
+      const placeTotalsForInsights = new Map();
+      monthExpenses.forEach((t) => {
+        const key = (t.description && String(t.description).trim()) || t.category || 'Other';
+        placeTotalsForInsights.set(key, (placeTotalsForInsights.get(key) || 0) + (t.amount || 0));
+      });
+      const topPlaceForInsights = Array.from(placeTotalsForInsights.entries())
+        .sort((a, b) => b[1] - a[1])[0];
+      if (topPlaceForInsights) {
+        insightItems.push({
+          text: `Your top spend place is "${topPlaceForInsights[0]}" at ${formatCurrency(topPlaceForInsights[1])} this month.`,
+          status: 'ok',
+          emoji: '~'
+        });
+      }
+
+      const insights = insightItems.slice(0, 5);
 
       const placeTotals = new Map();
       monthExpenses.forEach((t) => {
