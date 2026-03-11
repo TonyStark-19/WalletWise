@@ -20,8 +20,10 @@ const { createContainer } = require('./containerBootstrap');
 const container = createContainer();
 const isProd = process.env.NODE_ENV === 'production';
 
-const FRONTEND_URL =
-  process.env.FRONTEND_URL || (isProd ? null : 'http://localhost:3000');
+const FRONTEND_URL = (
+    process.env.FRONTEND_URL ||
+    (isProd ? null : 'http://localhost:3000')
+)?.replace(/\/+$/, '');
 const MONGODB_URI =
   process.env.MONGODB_URI || (isProd ? null : 'mongodb://localhost:27017/walletwise');
 
