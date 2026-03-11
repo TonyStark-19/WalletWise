@@ -10,6 +10,7 @@ const googleOauthEnabled = Boolean(
   process.env.GOOGLE_CLIENT_SECRET &&
   process.env.GOOGLE_CALLBACK_URL
 );
+const frontendBaseUrl = (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 if (googleOauthEnabled) {
   router.get('/google', passport.authenticate('google', {
@@ -19,7 +20,7 @@ if (googleOauthEnabled) {
 
   router.get(
     '/google/callback',
-    passport.authenticate('google', { session: false, failureRedirect: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/login?error=google` }),
+    passport.authenticate('google', { session: false, failureRedirect: `${frontendBaseUrl}/login?error=google` }),
     authController.googleCallback
   );
 } else {

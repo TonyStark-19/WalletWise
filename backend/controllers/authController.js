@@ -646,7 +646,8 @@ const googleCallback = asyncHandler(async (req, res) => {
 
   setAuthCookies(res, accessToken, refreshToken);
 
-  const redirectUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard`;
+  const frontendBaseUrl = (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/+$/, '');
+  const redirectUrl = `${frontendBaseUrl}/dashboard`;
   return res.redirect(redirectUrl);
 });
 
