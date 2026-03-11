@@ -1,10 +1,28 @@
 .gamification-container {
+  --gami-bg: var(--bg-page, #f8fafc);
+  --gami-surface: var(--bg-card, #ffffff);
+  --gami-surface-muted: var(--bg-subtle, #f1f5f9);
+  --gami-border: var(--border-light, #e2e8f0);
+  --gami-text: var(--text-main, #1e293b);
+  --gami-muted: var(--text-muted, #64748b);
+  --gami-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
-  background-color: var(--bg-primary, #f8fafc);
-  color: var(--text-primary, #1e293b);
+  background-color: var(--gami-bg);
+  color: var(--gami-text);
+}
+
+body.theme-dark .gamification-container,
+.dark .gamification-container {
+  --gami-bg: #0b1120;
+  --gami-surface: #101a2b;
+  --gami-surface-muted: #0f172a;
+  --gami-border: #223249;
+  --gami-text: #e2e8f0;
+  --gami-muted: #94a3b8;
+  --gami-shadow: 0 16px 32px rgba(2, 6, 23, 0.45);
 }
 
 .gami-header {
@@ -15,12 +33,12 @@
 
 .gami-header h1 {
   font-size: 2.5rem;
-  color: var(--text-primary);
+  color: var(--gami-text);
   margin-bottom: 0.5rem;
 }
 
 .gami-header p {
-  color: var(--text-secondary, #64748b);
+  color: var(--gami-muted);
   font-size: 1.1rem;
 }
 
@@ -34,7 +52,7 @@
   gap: 0.5rem;
   background: none;
   border: none;
-  color: var(--text-secondary);
+  color: var(--gami-muted);
   font-weight: 600;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -43,7 +61,7 @@
 }
 
 .back-btn:hover {
-  background-color: var(--bg-secondary, #e2e8f0);
+  background-color: var(--gami-surface-muted);
   color: var(--primary-color, #3b82f6);
 }
 
@@ -53,16 +71,16 @@
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, var(--gami-surface) 0%, var(--gami-surface-muted) 100%);
   padding: 3rem;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  box-shadow: var(--gami-shadow);
   margin-bottom: 3rem;
-  border: 1px solid var(--border-color, #e2e8f0);
+  border: 1px solid var(--gami-border);
 }
 
 .dark .stats-hero {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #132038 0%, #0f172a 100%);
 }
 
 .level-ring {
@@ -81,7 +99,7 @@
 
 .level-number span {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--gami-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -102,7 +120,7 @@
 
 .circle-bg {
   fill: none;
-  stroke: var(--bg-secondary, #e2e8f0);
+  stroke: var(--gami-border);
   stroke-width: 2.5;
 }
 
@@ -138,18 +156,18 @@
 
 .xp-details h3 span {
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: var(--gami-muted);
   font-weight: normal;
 }
 
 .xp-details p {
-  color: var(--text-secondary);
+  color: var(--gami-muted);
   margin-bottom: 1rem;
 }
 
 .xp-bar-container {
   height: 10px;
-  background-color: var(--bg-secondary, #e2e8f0);
+  background-color: var(--gami-surface-muted);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -165,15 +183,15 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  background-color: var(--bg-primary, #ffffff);
+  background-color: var(--gami-surface);
   padding: 1.5rem 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  border: 1px solid var(--border-color, #e2e8f0);
+  box-shadow: var(--gami-shadow);
+  border: 1px solid var(--gami-border);
 }
 
 .dark .streak-box {
-  background-color: #1e293b;
+  background-color: var(--gami-surface);
 }
 
 .streak-icon {
@@ -199,24 +217,24 @@
 }
 
 .streak-text p {
-  color: var(--text-secondary);
+  color: var(--gami-muted);
   margin: 0 0 0.25rem 0;
 }
 
 .streak-text small {
-  color: var(--text-secondary);
+  color: var(--gami-muted);
   font-weight: 600;
 }
 
 .badges-section {
-  background-color: var(--bg-primary, #ffffff);
+  background-color: var(--gami-surface);
   border-radius: 20px;
   padding: 2rem;
-  border: 1px solid var(--border-color, #e2e8f0);
+  border: 1px solid var(--gami-border);
 }
 
 .dark .badges-section {
-  background-color: #1e293b;
+  background-color: var(--gami-surface);
 }
 
 .section-title {
@@ -225,7 +243,7 @@
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  border-bottom: 1px solid var(--gami-border);
 }
 
 .section-title h2 {
@@ -236,7 +254,7 @@
 }
 
 .section-title span {
-  background-color: var(--bg-secondary, #f1f5f9);
+  background-color: var(--gami-surface-muted);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -261,7 +279,7 @@
 }
 
 .badge-card.unlocked {
-  background: linear-gradient(to bottom, var(--bg-primary, #ffffff), #f8fafc);
+  background: linear-gradient(to bottom, var(--gami-surface), var(--gami-surface-muted));
   border-color: #fce7f3;
   box-shadow: 0 4px 15px rgba(244, 114, 182, 0.1);
 }
@@ -277,7 +295,7 @@
 }
 
 .badge-card.locked {
-  background-color: var(--bg-secondary, #f1f5f9);
+  background-color: var(--gami-surface-muted);
   border: 2px dashed #cbd5e1;
   opacity: 0.7;
 }
@@ -323,11 +341,12 @@
 .badge-card h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
+  color: var(--gami-text);
 }
 
 .badge-card p {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--gami-muted);
   margin: 0;
   line-height: 1.4;
 }
@@ -493,6 +512,7 @@
 
 .reflection-item strong {
   font-size: 0.9rem;
+  color: var(--gami-text);
 }
 
 .reflection-item p {
@@ -519,6 +539,78 @@
 
 .boost-btn {
   min-width: 150px;
+}
+
+body.theme-dark .savings-cute-section,
+.dark .savings-cute-section {
+  background: linear-gradient(135deg, #1a2238 0%, #1f2a44 45%, #0f172a 100%);
+  border-color: #334155;
+}
+
+body.theme-dark .savings-cute-header p,
+.dark .savings-cute-header p {
+  color: var(--gami-muted);
+}
+
+body.theme-dark .savings-streak-chip,
+.dark .savings-streak-chip {
+  background: #111c30;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+body.theme-dark .savings-streak-chip.ready,
+.dark .savings-streak-chip.ready {
+  border-color: #166534;
+  color: #86efac;
+  background: #052e16;
+}
+
+body.theme-dark .calendar-card,
+body.theme-dark .reflection-card,
+.dark .calendar-card,
+.dark .reflection-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: var(--gami-border);
+}
+
+body.theme-dark .calendar-title span,
+body.theme-dark .calendar-weekdays span,
+.dark .calendar-title span,
+.dark .calendar-weekdays span {
+  color: var(--gami-muted);
+}
+
+body.theme-dark .day-cell,
+.dark .day-cell {
+  background: #111c30;
+  border-color: var(--gami-border);
+  color: #cbd5e1;
+}
+
+body.theme-dark .day-cell.saved,
+.dark .day-cell.saved {
+  background: #052e16;
+  border-color: #166534;
+  color: #86efac;
+}
+
+body.theme-dark .reflection-item,
+.dark .reflection-item {
+  background: #111c30;
+  border-color: var(--gami-border);
+}
+
+body.theme-dark .reflection-item p,
+body.theme-dark .boost-box p,
+.dark .reflection-item p,
+.dark .boost-box p {
+  color: var(--gami-muted);
+}
+
+body.theme-dark .boost-box,
+.dark .boost-box {
+  border-top-color: var(--gami-border);
 }
 
 @media (max-width: 768px) {

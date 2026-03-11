@@ -1,4 +1,4 @@
-🔗 Connecting to MongoDB: mongodb+srv://lkhairnar580_db_user:lokesh123@spms.xpzjjr2.mongodb.net/walletwise?retryWrites=true&w=majority
+🔗 Connecting to MongoDB: mongodb+srv://Soumya:soumya12@cluster0.66uuu4x.mongodb.net/walletwise?retryWrites=true&w=majority&appName=Cluster0
 ❌ UNCAUGHT EXCEPTION: ReferenceError: asyncHandler is not defined
     at Object.<anonymous> (K:\Open source\WalletWise\backend\server.js:147:5)
     at Module._compile (node:internal/modules/cjs/loader:1761:14)

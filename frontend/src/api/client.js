@@ -96,9 +96,9 @@ api.interceptors.response.use(
         refreshClient.post('/auth/logout', {}).catch(() => { });
         // 2. Dispatch for isolated context cleaning if needed
         window.dispatchEvent(new Event('auth:logout'));
-        // 3. Purge LocalStorage (if any tokens are stored client-side)
-        localStorage.clear();
-        sessionStorage.clear();
+        // 3. Do not clear all browser storage.
+        // We use cookie-based auth, and wiping storage would remove unrelated
+        // user preferences (theme) and recovery flow context.
 
         // 4. Force redirection outside generic React flow
         if (window.location.pathname !== '/login') {

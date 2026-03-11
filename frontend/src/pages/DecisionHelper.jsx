@@ -149,7 +149,14 @@ const DecisionHelper = () => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 className="decision-card"
-                                style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center', color: '#64748b' }}
+                                style={{
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    textAlign: 'center',
+                                    color: 'var(--decision-muted)'
+                                }}
                             >
                                 <div style={{ marginBottom: '1rem' }}>
                                     <LucideInfo size={48} style={{ margin: '0 auto', opacity: 0.3 }} />
@@ -192,14 +199,14 @@ const DecisionHelper = () => {
                                 </div>
 
                                 <div className="decision-card" style={{ padding: '1.25rem' }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#6366f1' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--primary-color, #6366f1)' }}>
                                         <LucideZap size={18} />
                                         <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>Financial Impact</span>
                                     </div>
-                                    <div style={{ marginTop: '1rem', height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
-                                        <div style={{ width: `${Math.min(result.metrics.purchaseImpact, 100)}%`, height: '100%', background: '#6366f1' }}></div>
+                                    <div style={{ marginTop: '1rem', height: '8px', background: 'var(--decision-surface-muted)', borderRadius: '4px', overflow: 'hidden' }}>
+                                        <div style={{ width: `${Math.min(result.metrics.purchaseImpact, 100)}%`, height: '100%', background: 'var(--primary-color, #6366f1)' }}></div>
                                     </div>
-                                    <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#64748b' }}>
+                                    <p style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'var(--decision-muted)' }}>
                                         This purchase takes up {result.metrics.purchaseImpact.toFixed(1)}% of your total monthly budget.
                                     </p>
                                 </div>

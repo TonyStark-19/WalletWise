@@ -1,8 +1,26 @@
 .decision-page {
+    --decision-bg: var(--bg-page, #f8fafc);
+    --decision-surface: var(--bg-card, #ffffff);
+    --decision-surface-muted: var(--bg-subtle, #f1f5f9);
+    --decision-border: var(--border-light, #e2e8f0);
+    --decision-text: var(--text-main, #1e293b);
+    --decision-muted: var(--text-muted, #64748b);
+    --decision-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
     min-height: 100vh;
-    background-color: var(--bg-primary, #f8fafc);
+    background-color: var(--decision-bg);
     padding: 2rem;
     font-family: 'Inter', sans-serif;
+}
+
+body.theme-dark .decision-page,
+.dark .decision-page {
+    --decision-bg: #0b1120;
+    --decision-surface: #101a2b;
+    --decision-surface-muted: #0f172a;
+    --decision-border: #223249;
+    --decision-text: #e2e8f0;
+    --decision-muted: #94a3b8;
+    --decision-shadow: 0 16px 32px rgba(2, 6, 23, 0.45);
 }
 
 .decision-header {
@@ -21,7 +39,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #64748b;
+    color: var(--decision-muted);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s;
@@ -31,7 +49,7 @@
 }
 
 .back-link:hover {
-    color: #1e293b;
+    color: var(--decision-text);
 }
 
 .decision-badge {
@@ -48,13 +66,13 @@
 
 .decision-hero h1 {
     font-size: 2.5rem;
-    color: #1e293b;
+    color: var(--decision-text);
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 }
 
 .decision-hero p {
-    color: #64748b;
+    color: var(--decision-muted);
     font-size: 1.1rem;
     line-height: 1.6;
 }
@@ -68,16 +86,16 @@
 }
 
 .decision-card {
-    background: white;
+    background: var(--decision-surface);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    border: 1px solid #f1f5f9;
+    box-shadow: var(--decision-shadow);
+    border: 1px solid var(--decision-border);
 }
 
 .decision-card h2 {
     font-size: 1.25rem;
-    color: #1e293b;
+    color: var(--decision-text);
     margin-bottom: 1.5rem;
 }
 
@@ -96,13 +114,15 @@
 .form-group label {
     font-size: 0.9rem;
     font-weight: 500;
-    color: #64748b;
+    color: var(--decision-muted);
 }
 
 .form-group input,
 .form-group select {
     padding: 0.75rem 1rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--decision-border);
+    background: var(--decision-surface-muted);
+    color: var(--decision-text);
     border-radius: 12px;
     font-size: 1rem;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -126,9 +146,9 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--decision-border);
     border-radius: 12px;
-    background: white;
+    background: var(--decision-surface);
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -140,7 +160,7 @@
 .mood-btn span:last-child {
     font-size: 0.75rem;
     font-weight: 500;
-    color: #64748b;
+    color: var(--decision-muted);
 }
 
 .mood-btn.active {
@@ -170,7 +190,7 @@
 }
 
 .evaluate-btn:disabled {
-    background: #cbd5e1;
+    background: #64748b;
     cursor: not-allowed;
 }
 
@@ -207,7 +227,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: white;
+    background: var(--decision-surface);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,15 +242,15 @@
 }
 
 .recommendation-box {
-    background: #f8fafc;
+    background: var(--decision-surface-muted);
     border-radius: 16px;
     padding: 1.5rem;
-    border: 1px solid #f1f5f9;
+    border: 1px solid var(--decision-border);
 }
 
 .recommendation-box h4 {
     font-size: 0.9rem;
-    color: #64748b;
+    color: var(--decision-muted);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -238,7 +258,7 @@
 
 .recommendation-box p {
     line-height: 1.5;
-    color: #1e293b;
+    color: var(--decision-text);
 }
 
 .factors-list {
@@ -252,8 +272,8 @@
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     border-radius: 99px;
-    background: #e2e8f0;
-    color: #475569;
+    background: var(--decision-surface-muted);
+    color: var(--decision-muted);
     font-weight: 500;
 }
 
@@ -264,21 +284,21 @@
 }
 
 .metric-item {
-    background: #fff;
-    border: 1px solid #f1f5f9;
+    background: var(--decision-surface);
+    border: 1px solid var(--decision-border);
     padding: 1rem;
     border-radius: 16px;
 }
 
 .metric-item label {
     font-size: 0.75rem;
-    color: #64748b;
+    color: var(--decision-muted);
 }
 
 .metric-item p {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--decision-text);
 }
 
 @media (max-width: 900px) {

@@ -1,11 +1,23 @@
 const { getRate, BASE_CURRENCY } = require('../utils/currencyConverter');
 const User = require('../models/User');
+const INTERNAL_BASE_PRECISION = 8;
 
 const currencyMiddleware = async (req, res, next) => {
     // Skip if userId is not populated (i.e. before auth)
     if (!req.userId) return next();
 
     try {
+        const requestPath = req.originalUrl || req.url || '';
+        const shouldPreserveExactTransactionValues =
+            /\/(api\/v1\/)?transactions(\/|$)/.test(requestPath) ||
+            /\/(api\/v1\/)?dashboard(\/|$)/.test(requestPath);
+
+        // Preserve exact amounts for transaction create/read and dashboard totals.
+        // This ensures entered income maps 1:1 to wallet balance and total balance.
+        if (shouldPreserveExactTransactionValues) {
+            return next();
+        }
+
         const user = await User.findById(req.userId).select('currency');
         const userCurrency = user?.currency || BASE_CURRENCY;
 
@@ -34,7 +46,9 @@ const currencyMiddleware = async (req, res, next) => {
                 } else if (obj !== null && typeof obj === 'object') {
                     for (let key in obj) {
                         if (convertKeys.has(key) && typeof obj[key] === 'number') {
-                            obj[key] = Number((obj[key] * rateToBase).toFixed(2));
+                            // Keep higher precision in base currency to avoid round-trip drift
+                            // (e.g., 2000 becoming 1999.89 after convert-to-base and back).
+                            obj[key] = Number((obj[key] * rateToBase).toFixed(INTERNAL_BASE_PRECISION));
                         } else if (typeof obj[key] === 'object') {
                             convertIncoming(obj[key]);
                         }
