@@ -969,7 +969,7 @@ body.theme-dark .ww-header.scrolled {
 
 /* --- CTA --- */
 .ww-cta-section {
-  padding: 100px 0;
+  padding: 100px;
   text-align: center;
 }
 
@@ -1197,6 +1197,16 @@ body.theme-dark .ww-header.scrolled {
   /* --- General --- */
   .ww-section {
     padding: 80px 0;
+  }
+
+  .ww-cta-box {
+    padding: 50px 24px;
+    margin: 0 20px;
+  }
+
+  .ww-cta-box h2 {
+    font-size: 1.7rem;
+    line-height: 50px;
   }
 
   /* hero section */
