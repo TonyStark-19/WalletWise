@@ -171,7 +171,7 @@ const Dashboard = () => {
       path: "/transactions",
     },
     { id: "budget", label: "Budget", icon: FaChartPie, path: "/budget" },
-    { id: "wallets", label: "Shared Wallets", icon: FaWallet, path: "/wallets" },
+    { id: "wallets", label: "Wallets", icon: FaWallet, path: "/wallets" },
     { id: "subscriptions", label: "Subscriptions", icon: FaCog, path: "/subscriptions" },
   ];
 
@@ -658,7 +658,8 @@ const Dashboard = () => {
           className="mobile-overlay"
           onClick={() => setIsMobileMenuOpen(false)}
           aria-hidden="true"
-        ></div>
+        >
+        </div>
       )}
       {/* Clean, Focused Navbar */}
       <header className="dashboard-header">
@@ -833,9 +834,8 @@ const Dashboard = () => {
               <h2 className="greeting-text">
                 Good {timeOfDay},{" "}
                 <span className="user-name">
-                  {user?.fullName || user?.name}
+                  {user?.fullName || user?.name}!
                 </span>
-                !
               </h2>
               <p className="current-date">
                 <FaCalendarAlt className="date-icon" />

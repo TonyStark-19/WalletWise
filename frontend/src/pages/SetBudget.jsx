@@ -322,13 +322,12 @@ const SetBudget = ({ isOpen, onClose, onSetBudget }) => {
               Total Monthly Budget *
             </label>
             <div className="total-budget-input">
-              <span className="budget-currency">{currencySymbol}</span>
               <input
                 type="number"
                 id="totalBudget"
                 value={formData.totalBudget}
                 onChange={handleTotalBudgetChange}
-                placeholder="0"
+                placeholder="$ 0"
                 min="0"
                 required
                 autoFocus
@@ -434,7 +433,7 @@ const SetBudget = ({ isOpen, onClose, onSetBudget }) => {
                       disabled={loading}
                     />
                     <div className="slider-value">
-                      <span>{formData.categories[activeCategory].percentage}%</span>
+                     
                       <input
                         type="number"
                         min="0"

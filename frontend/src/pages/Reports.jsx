@@ -565,22 +565,6 @@ const Reports = () => {
           <p>{headerNote}</p>
         </div>
       </header>
-      <div className="reports-actions-bar">
-        <div className="download-menu-container">
-          <button
-            className="download-btn primary-button"
-            onClick={() => setDownloadMenuOpen(!downloadMenuOpen)}
-          >
-            <FaDownload /> Download Report
-          </button>
-          {downloadMenuOpen && (
-            <div className="download-dropdown">
-              <button onClick={handleExportCSV}>Export as CSV</button>
-              <button onClick={handleExportPDF}>Export as PDF</button>
-            </div>
-          )}
-        </div>
-      </div>
 
       {loading && (
         <div className="reports-status loading">
@@ -588,17 +572,36 @@ const Reports = () => {
         </div>
       )}
 
-      <div className="tabs-bar">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            className={`tab-pill ${activeTab === tab.id ? 'active' : ''}`}
-            onClick={() => handleTabClick(tab.id)}
-          >
-            <span className="tab-emoji">{tab.emoji}</span>
-            {tab.label}
-          </button>
-        ))}
+      <div className="tab-group">
+        <div className="tabs-bar">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`tab-pill ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => handleTabClick(tab.id)}
+            >
+              <span className="tab-emoji">{tab.emoji}</span>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="reports-actions-bar">
+          <div className="download-menu-container">
+            <button
+              className="download-btn primary-button"
+              onClick={() => setDownloadMenuOpen(!downloadMenuOpen)}
+            >
+              <FaDownload /> Download Report
+            </button>
+            {downloadMenuOpen && (
+              <div className="download-dropdown">
+                <button onClick={handleExportCSV}>Export as CSV</button>
+                <button onClick={handleExportPDF}>Export as PDF</button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="tabs-panels" ref={panelsRef} onScroll={handlePanelsScroll}>

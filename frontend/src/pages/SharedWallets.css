@@ -319,9 +319,10 @@ body.theme-dark .wallet-details-container,
   padding: 0.75rem 1.5rem;
   background: var(--wallet-surface-muted);
   border: 1px solid var(--wallet-border);
-  border-radius: 6px;
+  border-radius: 15px;
   cursor: pointer;
   color: var(--wallet-text);
+  border: 2px solid var(--border-light);
 }
 
 .btn-secondary:hover {
