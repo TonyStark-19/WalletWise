@@ -35,14 +35,10 @@ Created a virtual Micro-Investment Simulator that calculates unused budget savin
 ---
 
 ## Testing Steps
+
 1. Navigate to your dashboard. Make sure you have some budget vs expense data to derive a surplus.
-
 2. Click on "Simulator" in the sidebar.
-
 3. Review the "Learning Hub" tooltips for terms.
-
 4. From the Market list, click "Buy" on a stock.
-
 5. Verify the "Your Virtual Portfolio" updates and reflects your new holding immediately.
-
 6. Try selling a stock from the Holdings table and watch the virtual cash balance restore.

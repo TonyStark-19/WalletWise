@@ -12,11 +12,8 @@ This ensures that even if the database is compromised, the sensitive notes remai
 **Key Requirements**:
 
 - **Zero-Knowledge Architecture**: The encryption key is derived from a secondary password known ONLY to the user.
-
 - **Selective Encryption**: Users can toggle "Encrypt this note" for individual transactions.
-
 - **Secure Key Derivation**: Use PBKDF2 or Argon2 for key stretching on the client side.
-
 - **Biometric Unlock (Mobile/Web support)**: Integrated with the Web Authn API for easier access after the initial password entry.
 
 ---
@@ -46,12 +43,12 @@ This ensures that even if the database is compromised, the sensitive notes remai
 ### Security Consideration
 
 - Use AES-256-GCM for authenticated encryption.
-
 - Ensure the master key never touches the local storage in plain text; keep it in memory only.
 
 ---
 
 ## 🧪 Acceptance Criteria
+
 - [ ] User can enable a "Secure Vault" with a secondary password.
 
 - [ ] Encrypted notes are stored as unreadable strings in the MongoDB database.

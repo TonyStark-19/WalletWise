@@ -9,9 +9,7 @@ Welcome! Thanks for your interest in improving **WalletWise** — every bug fix,
 ### 1️⃣ Pick or Create an Issue
 
 - Browse [open issues](https://github.com/SoumyaMishra-7/WalletWise/issues)
-
 - Or open a new one with clear details
-
 - For UI work, attach mockups/references
 
 ---
@@ -19,7 +17,6 @@ Welcome! Thanks for your interest in improving **WalletWise** — every bug fix,
 ### 2️⃣ Claim It
 
 - Comment on the issue to express interest
-
 - Large tasks (e.g., landing page redesign) may require sharing your approach first
 
 ---
@@ -50,11 +47,8 @@ npm start
 ## ✅ Pull Request Guidelines
 
 - ✔️ Use clear commit messages
-
 - ✔️ Link the related issue
-
 - ✔️ Test locally before submitting
-
 - ✔️ For UI changes → add before/after screenshots or demo video
 
 ---
@@ -62,15 +56,10 @@ npm start
 ## 🌟 Contribution Ideas
 
 - 🎨 **UI/UX improvements** (landing page, dashboard, responsiveness)
-
 - ✨ **Animations & micro-interactions**
-
 - ♿ **Accessibility (a11y)**
-
 - ⚡ **Performance optimizations & bug fixes**
-
 - 🧠 **Behaviour-aware insights/predictions**
-
 - 🛠️ **Docs & developer experience improvements**
 
 ---

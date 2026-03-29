@@ -12,11 +12,8 @@ Students can just snap a picture of their grocery or cafe receipt, and WalletWis
 **Key Requirements**:
 
 - **Image Upload Pipeline**: Securely upload images to Cloudinary or AWS S3.
-
 - **OCR Engine Integration**: Integrate with a service like Tesseract.js (client-side) or Google Cloud Vision / AWS Textract (server-side).
-
 - **Data Extraction Logic**: Parse raw text to identify key patterns (e.g., symbols like $, "Total:", Date formats).
-
 - **Review UI**: Allow users to confirm and correct the extracted data before saving the transaction.
 
 ---

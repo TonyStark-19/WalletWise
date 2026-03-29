@@ -12,11 +12,8 @@ This educates students on the power of compounding and long-term savings without
 **Key Requirements**:
 
 - **Virtual Portfolio**: A dedicated sub-tab to track "Virtual Assets."
-
 - **Real-Time Data**: Integrate with a free stock API (like Alpha Vantage or Yahoo Finance) to get daily price updates.
-
 - **Round-Up Logic**: Automatically suggest "investing" the leftover budget at the end of each week.
-
 - **Educational Tooltips**: Explain terms like "Dividend," "Market Cap," and "Expense Ratio" within the UI.
 
 ---

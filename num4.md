@@ -32,7 +32,6 @@ This PR implements gamification mechanics to make budgeting more engaging and fu
 ## Testing Instructions
 
 1. Run both frontend and backend development servers.
-
 2. Sign in or create a test account.
 3. Access the `Rewards` tab from the Dashboard navigation menu. The initial level should render accurately as Lvl 1.
 4. Set a monthly budget and observe the unlocking of the "Budget Beginner" badge.
@@ -42,6 +41,6 @@ This PR implements gamification mechanics to make budgeting more engaging and fu
 ---
 
 ## Technical Notes
-- Backward compatibility is maintained. Uninitialized user records simply evaluate `user.totalXP || 0`.
 
+- Backward compatibility is maintained. Uninitialized user records simply evaluate `user.totalXP || 0`.
 - Includes custom `GamificationDashboard.css` optimized for both light and dark modes within the WalletWise ecosystem.

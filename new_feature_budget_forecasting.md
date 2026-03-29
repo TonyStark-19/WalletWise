@@ -12,11 +12,8 @@ This helps students stay ahead of their spending peaks (e.g., beginning of semes
 **Key Requirements**:
 
 - **Trend Detection**: Identify categories with increasing or decreasing spending over time.
-
 - **Predictive Suggestions**: Automatically suggest "Total Budget" for next month based on a 3-month rolling average.
-
 - **Anomaly Warnings**: Alert the user if their current spending velocity suggests they will hit their budget 2 weeks early.
-
 - **Visual Projection**: A "dotted line" on charts showing where the user's spending is projected to end the month at the current rate.
 
 ---

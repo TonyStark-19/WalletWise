@@ -13,9 +13,7 @@ This requires a significant architecture shift from a strict one-to-one user-tra
 
 - **Group Creation**: Users can create a "Wallet Group" and invite others via email or a unique code.
 - **Role-Based Access**: Owner vs. Contributor permissions.
-
 - **Real-time Synchronization**: When one user logs a shared expense, it reflects instantly for all members.
-
 - **Settlement Logic**: Automatically calculate who owes whom at the end of the month based on shared transactions.
 
 ---
@@ -49,7 +47,6 @@ This requires a significant architecture shift from a strict one-to-one user-tra
 ### Security Consideration
 
 - Ensure that users can ONLY see transactions in groups they are members of.
-
 - Strict validation to prevent unauthorized users from joining a group via forged invite codes.
 
 ---

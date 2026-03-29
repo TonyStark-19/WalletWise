@@ -33,9 +33,7 @@ This Pull Request introduces the Shared Wallets feature, enabling users to creat
 ## Testing Performed
 
 - Unit testing of API routes and JSON schema parsing variations.
-
 - Validated that assigning an expense to a Shared Wallet strictly bypasses the user's personal `Total Balance` calculation.
-
 - Tested edge cases such as preventing removal of the wallet owner and ensuring only admins can add new members.
 
 ---

@@ -10,11 +10,8 @@ Budgeting can feel like a chore. This feature aims to make it engaging by introd
 **Key Requirements**:
 
 - **Streak Tracking**: Number of consecutive days the user has logged a transaction or stayed under their daily budget.
-
 - **Badge System**: Achievement-based icons (e.g., "First Goal Hit," "Monthly Master," "Emergency Fund Starter").
-
 - **Leveling System**: XP gained from consistent app usage and hitting financial milestones.
-
 - **Leaderboards (Optional/Privacy-First)**: Compare progress with friends (opt-in only).
 
 ---
